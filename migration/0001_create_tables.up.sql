@@ -1,6 +1,7 @@
 CREATE TABLE subscriptions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     internet_limit VARCHAR(50) NOT NULL,
     call_minutes VARCHAR(50) NOT NULL,
