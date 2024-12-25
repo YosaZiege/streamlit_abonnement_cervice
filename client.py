@@ -29,13 +29,30 @@ st.markdown(
     }
 
     .error-message {
-        color: red; // it changes the color of Error Message
-        display:none;
-        position:absolute;
+        color: red; 
         opacity:0.85;
-        font-size: 24px;  // it changes the font size of Error Message
-        z-index:5;
-        border-radu
+        font-size: 24px; 
+    }
+
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <style>
+    .form-container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .form-container input {
+        margin-bottom: 10px;
     }
     </style>
     """,
@@ -70,16 +87,17 @@ def register_user(username, email, password, phone_number):
         return f"Erreur : {e}"
 
 # Interface utilisateur
-st.header("Bienvenue sur notre plateforme")
 st.subheader("Veuillez remplir les informations suivantes")
-st.markdown("<h3 style='color:blue;'>Formulaire d'inscription</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='color:black;'>Formulaire d'inscription</h3>", unsafe_allow_html=True)
 
 # Champs d'inscription
+st.markdown('<div class="form-container">', unsafe_allow_html=True)
 username = st.text_input("Nom d'utilisateur")
 email = st.text_input("Adresse e-mail")
 password = st.text_input("Mot de passe", type="password")
 confirm_password = st.text_input("Confirmez le mot de passe", type="password")
 phone_number = st.text_input("Numéro de téléphone")  # Nouveau champ ajouté
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Bouton pour s'inscrire
 if st.button("S'inscrire"):
