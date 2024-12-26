@@ -53,12 +53,15 @@ with st.form("my_form"):
 if submit:
     if username and password:
         if verify_user(username, password):
-            st.success(f"Connexion réussie ! Bienvenue, {username}!")
-            time.sleep(1)
-                # Redirection vers une autre page après la connexion
-            st.session_state['login_in'] = True
-            st.session_state['email_user'] = username
-            st.switch_page("1_app.py")
+            if username == "admin@gmail.com" and password == "root" :
+                st.switch_page("pages/6_admin.py")
+            else :
+                st.success(f"Connexion réussie ! Bienvenue, {username}!")
+                time.sleep(1)
+                    # Redirection vers une autre page après la connexion
+                st.session_state['login_in'] = True
+                st.session_state['email_user'] = username
+                st.switch_page("1_app.py")
                 # Par exemple : st.experimental_rerun()
         else:
             st.error("Nom d'utilisateur ou mot de passe incorrect.")
